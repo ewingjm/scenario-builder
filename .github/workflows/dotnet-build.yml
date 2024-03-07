@@ -2,7 +2,7 @@ name: dotnet build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "ci/build-action" ]
 
 jobs:
   build:

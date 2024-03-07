@@ -1,0 +1,7 @@
+[*.cs]
+# A C# code file is missing a standard file header.
+# https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md
+dotnet_diagnostic.SA1633.severity = silent
+
+[**/GlobalUsings.cs]
+csharp_using_directive_placement = outside_namespace:silent

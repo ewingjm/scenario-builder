@@ -74,11 +74,4 @@ jobs:
           CREATERELEASE_FULLSEMVER: ${{ needs.build.outputs.fullSemVer }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          $tag = "v$env:CREATERELEASE_FULLSEMVER"
-
-          try {
-            gh release view $tag --repo="$env:GITHUB_REPOSITORY"
-          }
-          catch {
-            gh release create $tag --generate-notes --repo="$env:GITHUB_REPOSITORY"
-          }
+          gh release create "v$env:CREATERELEASE_FULLSEMVER" --generate-notes --repo="$env:GITHUB_REPOSITORY"

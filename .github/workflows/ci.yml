@@ -20,14 +20,15 @@ jobs:
     outputs:
       fullSemVer: ${{ steps.gitversion.outputs.fullSemVer }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0
         with:
           versionSpec: '5.x'
-      - name: Determine Version
+      - name: Run GitVersion
         id: gitversion
         uses: gittools/actions/gitversion/execute@v0
         with:
@@ -44,7 +45,8 @@ jobs:
         run: dotnet test --configuration Release --no-build --verbosity normal
       - name: Pack
         run: dotnet pack --configuration Release --no-restore --output ${{ env.BUILD_NUGET_OUTPUTDIRECTORY }}
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
           name: package
           if-no-files-found: error
@@ -54,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ build ]
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: package
           path: ${{ env.BUILD_NUGET_OUTPUTDIRECTORY }}

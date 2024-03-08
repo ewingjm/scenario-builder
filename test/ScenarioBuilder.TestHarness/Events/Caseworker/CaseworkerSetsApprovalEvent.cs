@@ -1,10 +1,10 @@
-﻿namespace ScenarioBuilder.TestHarness.Events.Caseworker
+﻿namespace ScenarioBuilder.TestImplementation.Events.Caseworker
 {
     using Microsoft.Extensions.Logging;
     using Microsoft.Xrm.Sdk;
-    using ScenarioBuilder.TestHarness.Events.Caseworker.Composites;
-    using ScenarioBuilder.TestHarness.Events.PortalUser;
-    using ScenarioBuilder.TestHarness.Services;
+    using ScenarioBuilder.TestImplementation.Events.Caseworker.Composites;
+    using ScenarioBuilder.TestImplementation.Events.PortalUser;
+    using ScenarioBuilder.TestImplementation.Services;
 
     /// <summary>
     /// An event for a caseworker approving an application.

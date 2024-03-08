@@ -1,4 +1,4 @@
-﻿namespace ScenarioBuilder.TestHarness
+﻿namespace ScenarioBuilder.TestImplementation
 {
     /// <summary>
     /// The personas involved in the scenarios.

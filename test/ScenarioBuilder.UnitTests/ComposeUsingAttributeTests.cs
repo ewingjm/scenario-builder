@@ -1,7 +1,7 @@
 ﻿namespace ScenarioBuilder.UnitTests;
 
 using ScenarioBuilder;
-using ScenarioBuilder.TestHarness.Events.PortalUser;
+using ScenarioBuilder.TestImplementation.Events.PortalUser;
 
 /// <summary>
 /// Tests for the <see cref="ComposeUsingAttribute"/> class.

@@ -1,11 +1,11 @@
-﻿namespace ScenarioBuilder.TestHarness;
+﻿namespace ScenarioBuilder.TestImplementation;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using ScenarioBuilder.TestHarness.Events.Caseworker;
-using ScenarioBuilder.TestHarness.Events.Caseworker.Composites;
-using ScenarioBuilder.TestHarness.Events.PortalUser;
-using ScenarioBuilder.TestHarness.Services;
+using ScenarioBuilder.TestImplementation.Events.Caseworker;
+using ScenarioBuilder.TestImplementation.Events.Caseworker.Composites;
+using ScenarioBuilder.TestImplementation.Events.PortalUser;
+using ScenarioBuilder.TestImplementation.Services;
 
 /// <summary>
 /// An example scenario for an application.

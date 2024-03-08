@@ -1,11 +1,11 @@
-﻿namespace ScenarioBuilder.TestHarness.Events.Caseworker
+﻿namespace ScenarioBuilder.TestImplementation.Events.Caseworker
 {
     using Microsoft.Crm.Sdk.Messages;
     using Microsoft.Extensions.Logging;
     using Microsoft.PowerPlatform.Dataverse.Client;
     using Microsoft.Xrm.Sdk;
-    using ScenarioBuilder.TestHarness.Events.PortalUser;
-    using ScenarioBuilder.TestHarness.Services;
+    using ScenarioBuilder.TestImplementation.Events.PortalUser;
+    using ScenarioBuilder.TestImplementation.Services;
 
     /// <summary>
     /// An event for a caseworker assigning an application.

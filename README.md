@@ -41,7 +41,7 @@ flowchart LR
     submitCase --> processCase
 ```
 
-The automated tests for this application will need to setup scenarios up to any given point in that process. In addition, the will need configure the specific parameters of each of those events. The scenario builder provides a framework for achieving both of those goals. 
+The automated tests for this application will need to setup scenarios up to any given point in that process. In addition, they will need to configure the specific parameters of each of those events. The scenario builder provides a framework for achieving both of those goals. 
 
 A scenario with a completely processed case:
 
@@ -95,14 +95,13 @@ public void GivenACaseHasBeenAssignedToMe()
 
 ```csharp
 [Given("I have completed the documents check")]
-public void GivenACaseHasBeenAssignedToMe()
+public void GivenIHaveCompletedTheDocumentsCheck()
 {
     var scenario = this.ctx.Get<MyScenario>("scenario");
 
     this.scenarioBuilder.
         .CaseworkerProcessesCase(a => a
-            .ByCompletingDocumentsCheck(b => b
-                .WithOutcome(DocumentsCheckOutcome.MissingDocuments))
+            .ByCompletingDocumentsCheck()
         .BuildAsync(scenario);
 }
 ```

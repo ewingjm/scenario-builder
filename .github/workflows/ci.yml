@@ -54,6 +54,8 @@ jobs:
           path: ${{ env.BUILD_NUGET_OUTPUTDIRECTORY }}/**.*nupkg
   deploy:
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write
     needs: [ build ]
     steps:
       - uses: actions/download-artifact@v4

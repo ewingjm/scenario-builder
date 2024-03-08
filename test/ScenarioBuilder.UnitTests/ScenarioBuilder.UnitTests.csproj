@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ScenarioBuilder\ScenarioBuilder.csproj" />
-    <ProjectReference Include="..\ScenarioBuilder.TestHarness\ScenarioBuilder.TestHarness.csproj" />
+    <ProjectReference Include="..\ScenarioBuilder.TestImplementation\ScenarioBuilder.TestImplementation.csproj" />
   </ItemGroup>
 
 </Project>

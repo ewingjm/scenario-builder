@@ -1,4 +1,4 @@
-﻿namespace ScenarioBuilder.TestHarness.Events.Caseworker.Composites
+﻿namespace ScenarioBuilder.TestImplementation.Events.Caseworker.Composites
 {
     /// <summary>
     /// A composite event for a caseworker processing an application.

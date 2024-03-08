@@ -1,0 +1,79 @@
+name: ci
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "src/**/*.cs" ]
+
+defaults:
+  run:
+    shell: pwsh
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: true
+  BUILD_NUGET_OUTPUTDIRECTORY: ${{ github.workspace}}/nuget
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      fullSemVer: ${{ steps.gitversion.outputs.fullSemVer }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0
+        with:
+          versionSpec: '5.x'
+      - name: Run GitVersion
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0
+        with:
+          useConfigFile: true
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --configuration Release --no-build --verbosity normal
+      - name: Pack
+        run: dotnet pack --configuration Release --no-restore --output ${{ env.BUILD_NUGET_OUTPUTDIRECTORY }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          if-no-files-found: error
+          retention-days: 0
+          path: ${{ env.BUILD_NUGET_OUTPUTDIRECTORY }}/**.*nupkg
+  deploy:
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: write
+    needs: [ build ]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: package
+          path: ${{ env.BUILD_NUGET_OUTPUTDIRECTORY }}
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+      - name: Publish
+        run: |
+          Get-ChildItem "${{ env.BUILD_NUGET_OUTPUTDIRECTORY }}" -Recurse -Include *.nupkg | ForEach-Object {
+            dotnet nuget push $_ --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          }
+      - name: Create release
+        env:
+          CREATERELEASE_FULLSEMVER: ${{ needs.build.outputs.fullSemVer }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "v$env:CREATERELEASE_FULLSEMVER" --generate-notes --repo="$env:GITHUB_REPOSITORY"

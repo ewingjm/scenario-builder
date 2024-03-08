@@ -5,3 +5,7 @@ dotnet_diagnostic.SA1633.severity = silent
 
 [**/GlobalUsings.cs]
 csharp_using_directive_placement = outside_namespace:silent
+
+
+[**/*Event.cs]
+dotnet_diagnostic.cs0649.severity = none

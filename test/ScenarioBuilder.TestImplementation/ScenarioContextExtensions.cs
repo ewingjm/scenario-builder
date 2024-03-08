@@ -1,4 +1,4 @@
-﻿namespace ScenarioBuilder.TestHarness
+﻿namespace ScenarioBuilder.TestImplementation
 {
     /// <summary>
     /// Extensions to the <see cref="ScenarioContext"/> class.

@@ -1,8 +1,8 @@
-﻿namespace ScenarioBuilder.TestHarness.Events.PortalUser
+﻿namespace ScenarioBuilder.TestImplementation.Events.PortalUser
 {
     using Microsoft.Extensions.Logging;
     using Microsoft.Xrm.Sdk;
-    using ScenarioBuilder.TestHarness.Services;
+    using ScenarioBuilder.TestImplementation.Services;
 
     /// <summary>
     /// An event for a portal user submitting an application.

@@ -1,7 +1,6 @@
 namespace ScenarioBuilder
 {
     using System.Threading.Tasks;
-    using System.Xml.Serialization;
     using AutoMapper;
 
     /// <summary>

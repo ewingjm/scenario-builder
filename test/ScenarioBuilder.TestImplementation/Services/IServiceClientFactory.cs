@@ -1,4 +1,4 @@
-﻿namespace ScenarioBuilder.TestHarness.Services
+﻿namespace ScenarioBuilder.TestImplementation.Services
 {
     using Microsoft.PowerPlatform.Dataverse.Client;
 

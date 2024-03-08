@@ -5,8 +5,8 @@ using Microsoft.Crm.Sdk.Messages;
 using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
 using Moq;
-using ScenarioBuilder.TestHarness;
-using ScenarioBuilder.TestHarness.Services;
+using ScenarioBuilder.TestImplementation;
+using ScenarioBuilder.TestImplementation.Services;
 
 /// <summary>
 /// Integration tests for the <see cref="ApplicationScenario.Builder"/> class.

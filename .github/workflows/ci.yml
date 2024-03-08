@@ -77,8 +77,8 @@ jobs:
           $tag = "v$env:CREATERELEASE_FULLSEMVER"
 
           try {
-            gh release view $tag
+            gh release view $tag --repo="$env:GITHUB_REPOSITORY"
           }
           catch {
-            gh release create $tag --generate-notes
+            gh release create $tag --generate-notes --repo="$env:GITHUB_REPOSITORY"
           }

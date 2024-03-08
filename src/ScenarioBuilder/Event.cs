@@ -4,7 +4,7 @@ namespace ScenarioBuilder
     using AutoMapper;
 
     /// <summary>
-    /// Represents an event to be executed.
+    /// Represents an event to be executed..
     /// </summary>
     public abstract class Event
     {

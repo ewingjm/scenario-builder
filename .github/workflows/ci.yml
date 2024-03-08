@@ -4,9 +4,6 @@ on:
   push:
     branches: [ "ci/build-action" ]
     paths: [ "src/**/*.cs" ]
-  release:
-    types:
-      - published
 
 defaults:
   run:

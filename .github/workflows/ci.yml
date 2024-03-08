@@ -1,6 +1,7 @@
 name: ci
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "ci/build-action" ]
     paths: [ "src/**/*.cs" ]

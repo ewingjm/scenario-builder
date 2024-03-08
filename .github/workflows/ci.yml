@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: [ "ci/build-action" ]
+    branches: [ "main" ]
     paths: [ "src/**/*.cs" ]
 
 defaults:
